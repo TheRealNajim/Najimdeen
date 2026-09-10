@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -17,7 +18,21 @@
     <header class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#home" class="logo">
-                <span class="logo-accent">NAJIMDEEN</span>AJADI
+                <svg class="logo-mark" viewBox="0 0 64 64" role="img" aria-label="Najimdeen Ajadi logo">
+                    <defs>
+                        <linearGradient id="navPGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ff0055"/>
+                            <stop offset="50%" stop-color="#7928ca"/>
+                            <stop offset="100%" stop-color="#00f2fe"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M32 4 L56 12 V30 C56 46 46 56 32 60 C18 56 8 46 8 30 V12 Z"
+                          fill="rgba(18, 20, 29, 0.9)" stroke="url(#navPGrad)" stroke-width="3"/>
+                    <text x="32" y="36" text-anchor="middle" dominant-baseline="central"
+                          font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="800"
+                          fill="url(#navPGrad)">NA</text>
+                </svg>
+                <span class="logo-text"><span class="logo-accent">NAJIMDEEN</span>AJADI</span>
             </a>
 
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
