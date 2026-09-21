@@ -9,15 +9,24 @@
             <stop offset="0%" stop-color="#00f2fe"/>
             <stop offset="100%" stop-color="#ffffff"/>
         </linearGradient>
+        <linearGradient id="gloss" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.45)"/>
+            <stop offset="45%" stop-color="rgba(255,255,255,0.08)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+        </linearGradient>
     </defs>
 
     <!-- Shield body -->
     <path d="M32 4 L56 12 V30 C56 46 46 56 32 60 C18 56 8 46 8 30 V12 Z"
-          fill="rgba(18, 20, 29, 0.9)" stroke="url(#pGrad)" stroke-width="3"/>
+          fill="rgba(8, 9, 13, 0.92)" stroke="url(#pGrad)" stroke-width="3"/>
+
+    <!-- Glossy top highlight -->
+    <path d="M32 4 L56 12 V30 C56 46 46 56 32 60 C18 56 8 46 8 30 V12 Z"
+          fill="url(#gloss)"/>
 
     <!-- Inner shield line -->
     <path d="M32 9.5 L51 16 V30 C51 42.5 43 50.8 32 54.5 C21 50.8 13 42.5 13 30 V16 Z"
-          fill="none" stroke="url(#sGrad)" stroke-width="1.25" opacity="0.45"/>
+          fill="none" stroke="url(#sGrad)" stroke-width="1.25" opacity="0.40"/>
 
     <!-- NA monogram -->
     <text x="32" y="37" text-anchor="middle" dominant-baseline="central"
