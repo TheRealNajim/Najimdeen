@@ -1,0 +1,38 @@
+/* 404 page — kept separate so the strict style-src 'self' CSP holds. */
+.err {
+    display: grid;
+    min-height: 100vh;
+    place-content: center;
+    gap: 1.25rem;
+    padding: var(--pad);
+    text-align: center;
+}
+
+.err__code {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.err h1 {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+}
+
+.err p {
+    max-width: 44ch;
+    margin-inline: auto;
+    font-size: var(--fs-sm);
+    color: var(--muted);
+}
+
+.err__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
