@@ -108,7 +108,8 @@ button {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
     font-weight: 550;
     line-height: 1.08;
     letter-spacing: -0.035em;
@@ -180,6 +181,17 @@ p {
 .section--page {
     min-height: calc(100vh - 90px);
     padding-top: calc(var(--nav-h) + clamp(2.5rem, 6vw, 5rem));
+}
+
+.page-section {
+    display: flex;
+    min-height: 100svh;
+    align-items: center;
+    border-top: 1px solid var(--line);
+}
+
+.page-section > .container {
+    width: 100%;
 }
 
 /* Navigation */
@@ -410,6 +422,10 @@ p {
     transform: translateX(2px);
 }
 
+.btn:active {
+    transform: translateY(1px);
+}
+
 .btn--primary {
     border-color: var(--accent);
     background: var(--accent);
@@ -471,6 +487,37 @@ p {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
+}
+
+/* Motion: quiet, structural, and transform-only ------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+    .hero__copy > * {
+        animation: hero-enter 680ms var(--ease) both;
+    }
+
+    .hero__copy > :nth-child(2) { animation-delay: 60ms; }
+    .hero__copy > :nth-child(3) { animation-delay: 120ms; }
+    .hero__copy > :nth-child(4) { animation-delay: 180ms; }
+    .hero__copy > :nth-child(5) { animation-delay: 240ms; }
+}
+
+@keyframes hero-enter {
+    from {
+        transform: translate3d(0, 16px, 0);
+    }
+}
+
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+    .page-section .section-head,
+    .page-section .card {
+        transform: translate3d(0, 20px, 0) scale(0.992);
+        transition: transform 620ms var(--ease), border-color 180ms linear, background-color 180ms linear;
+    }
+
+    .page-section .section-head.is-visible,
+    .page-section .card.is-visible {
+        transform: none;
+    }
 }
 
 /* Section headers */
@@ -548,7 +595,7 @@ p {
 }
 
 .card h2:not(.card__tag),
-.card h3 {
+.card h3:not(.card__tag) {
     font-size: clamp(1.05rem, 1.6vw, 1.3rem);
 }
 
@@ -615,7 +662,8 @@ p {
     gap: clamp(2rem, 5vw, 4rem);
 }
 
-.tools__group h3 {
+.tools__group h3,
+.tools__group h4 {
     margin-bottom: 1rem;
     font-size: 0.85rem;
     letter-spacing: -0.015em;
@@ -648,7 +696,7 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: opacity 200ms linear;
+    transition: opacity 240ms linear, transform 420ms var(--ease);
 }
 
 .project--idealab .project__media img {
@@ -657,6 +705,7 @@ p {
 
 .project:hover .project__media img {
     opacity: 0.88;
+    transform: scale(1.015);
 }
 
 .project__chrome {
@@ -724,7 +773,8 @@ p {
     background: var(--accent);
 }
 
-.project h2 {
+.project h2,
+.project h3 {
     font-size: clamp(1.15rem, 2vw, 1.45rem);
 }
 
@@ -919,7 +969,16 @@ p {
     color: var(--accent);
 }
 
-.service h2 {
+.service__icon svg {
+    transition: transform 240ms var(--ease);
+}
+
+.service:hover .service__icon svg {
+    transform: translate3d(1px, -1px, 0);
+}
+
+.service h2,
+.service h3 {
     max-width: 28rem;
     font-size: clamp(1.15rem, 2vw, 1.45rem);
 }
@@ -1081,7 +1140,8 @@ p {
     border-bottom: 1px solid var(--line);
 }
 
-.form__head h2 {
+.form__head h2,
+.form__head h3 {
     font-size: 1.2rem;
 }
 

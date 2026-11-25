@@ -47,6 +47,47 @@ if (header) {
     syncHeader();
 }
 
+/* Keep the navigation in sync with the section being read ---------------- */
+const sectionLinks = [...document.querySelectorAll('.nav__link[href^="#"]')];
+const sections = sectionLinks
+    .map((link) => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+const setCurrent = (id) => {
+    sectionLinks.forEach((link) => {
+        if (link.getAttribute('href') === `#${id}`) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+    });
+};
+
+sectionLinks.forEach((link) => {
+    link.addEventListener('click', () => setCurrent(link.hash.slice(1)));
+});
+
+if (sections.length && 'IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+        const current = entries.find((entry) => entry.isIntersecting);
+        if (current) setCurrent(current.target.id);
+    }, { rootMargin: '-25% 0px -65% 0px' });
+
+    sections.forEach((section) => sectionObserver.observe(section));
+}
+
+/* Reveal section content once, just before it reaches the viewport -------- */
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    const revealTargets = document.querySelectorAll('.page-section .section-head, .page-section .card');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+        });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+    revealTargets.forEach((target) => revealObserver.observe(target));
+}
+
 /* Contact --------------------------------------------------------------- */
 const toast = (message) => {
     const element = document.getElementById('toast');
