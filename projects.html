@@ -7,7 +7,7 @@
     <title>Projects — Najimdeen Ajadi</title>
     <meta name="description" content="Selected projects by Najimdeen Ajadi — CC-GEN, Idea Lab and an analog and digital clock, each built end to end and live.">
     <meta name="author" content="Najimdeen Ajadi">
-    <meta name="theme-color" content="#05050A">
+    <meta name="theme-color" content="#090909">
     <meta name="color-scheme" content="dark">
     <link rel="canonical" href="https://www.najimdeenajadi.xyz/projects.html">
 
@@ -65,14 +65,14 @@
         <!-- Projects -->
         <section id="projects" class="section section--page" aria-labelledby="projects-title">
             <div class="container">
-                <header class="section-head" data-reveal>
+                <header class="section-head">
                     <p class="eyebrow"><span aria-hidden="true">02</span> Work</p>
                     <h1 id="projects-title">Selected <span>projects</span></h1>
                     <p class="section-sub">Live applications, built end to end — from the interface down to the logic behind it.</p>
                 </header>
 
                 <div class="projects">
-                    <article class="card project project--haqi" data-spotlight data-reveal>
+                    <article class="card project project--haqi">
                         <figure class="project__media">
                             <div class="project__chrome" aria-hidden="true"><span></span><span></span><span></span><small>haqi-one.vercel.app</small></div>
                             <img src="img/work/haqi-800.webp" srcset="img/work/haqi-480.webp 480w, img/work/haqi-800.webp 800w, img/work/haqi-960.webp 960w, img/work/haqi.webp 1280w" sizes="(max-width: 720px) calc(100vw - 2.5rem), (max-width: 1280px) 50vw, 590px" width="1280" height="720" alt="HAQI live air-quality world risk map" decoding="async" fetchpriority="high">
@@ -103,7 +103,7 @@
                         </div>
                     </article>
 
-                    <article class="card project project--perppilot" data-spotlight data-reveal>
+                    <article class="card project project--perppilot">
                         <figure class="project__media project__media--cover">
                             <div class="project__chrome" aria-hidden="true"><span></span><span></span><span></span><small>perp-pilot.vercel.app</small></div>
                             <div class="perp-cover" aria-hidden="true">
@@ -141,7 +141,7 @@
                         </div>
                     </article>
 
-                    <article class="card project project--ccgen" data-spotlight data-reveal>
+                    <article class="card project project--ccgen">
                         <figure class="project__media">
                             <div class="project__chrome" aria-hidden="true"><span></span><span></span><span></span><small>cc-gen-seven.vercel.app</small></div>
                             <img src="img/work/ccgen-800.webp" srcset="img/work/ccgen-480.webp 480w, img/work/ccgen-800.webp 800w, img/work/ccgen-960.webp 960w, img/work/ccgen.webp 1280w" sizes="(max-width: 720px) calc(100vw - 2.5rem), (max-width: 1280px) 50vw, 590px" width="1280" height="560" alt="CC-GEN dummy card generator interface" loading="lazy" decoding="async">
@@ -169,7 +169,7 @@
                         </div>
                     </article>
 
-                    <article class="card project project--idealab" data-spotlight data-reveal>
+                    <article class="card project project--idealab">
                         <figure class="project__media">
                             <div class="project__chrome" aria-hidden="true"><span></span><span></span><span></span><small>makeweirduseful.vercel.app</small></div>
                             <img src="img/work/idealab-800.webp" srcset="img/work/idealab-480.webp 480w, img/work/idealab-800.webp 800w, img/work/idealab-960.webp 960w, img/work/idealab.webp 1280w" sizes="(max-width: 720px) calc(100vw - 2.5rem), (max-width: 1280px) 50vw, 590px" width="1280" height="800" alt="Idea Lab concept mashup generator interface" loading="lazy" decoding="async">
@@ -208,31 +208,6 @@
             <p class="footer__meta">&copy; <span id="year">2026</span> Najimdeen Ajadi</p>
         </div>
     </footer>
-
-    <dialog id="palette" class="sheet palette" aria-label="Command palette">
-        <div class="palette__search">
-            <span aria-hidden="true">&#8250;</span>
-            <input id="paletteInput" type="text" role="combobox" aria-expanded="true" aria-controls="paletteList" aria-autocomplete="list" aria-label="Search commands" placeholder="Jump to a page, copy email, open a project…" autocomplete="off" autocapitalize="off" spellcheck="false">
-            <kbd>esc</kbd>
-        </div>
-        <ul id="paletteList" class="palette__list" role="listbox" aria-label="Commands"></ul>
-        <p class="sr-only" id="paletteStatus" role="status"></p>
-        <footer class="palette__foot">
-            <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> navigate</span>
-            <span><kbd>&crarr;</kbd> select</span>
-            <span><kbd>?</kbd> shortcuts</span>
-        </footer>
-    </dialog>
-
-    <dialog id="panel" class="sheet panel" aria-labelledby="panelTitle">
-        <header class="panel__head">
-            <h2 id="panelTitle"></h2>
-            <button type="button" class="panel__close" id="panelClose" aria-label="Close (esc)">esc</button>
-        </header>
-        <div id="panelBody" class="panel__body"></div>
-    </dialog>
-
-    <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
     <script type="module" src="js/main.js"></script>
 </body>

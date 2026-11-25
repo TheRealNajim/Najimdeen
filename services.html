@@ -7,7 +7,7 @@
     <title>Services — Najimdeen Ajadi</title>
     <meta name="description" content="Frontend engineering, cybersecurity auditing, web scraping and automation, and Web3 interfaces from Najimdeen Ajadi.">
     <meta name="author" content="Najimdeen Ajadi">
-    <meta name="theme-color" content="#05050A">
+    <meta name="theme-color" content="#090909">
     <meta name="color-scheme" content="dark">
     <link rel="canonical" href="https://www.najimdeenajadi.xyz/services.html">
 
@@ -65,14 +65,14 @@
         <!-- Services -->
         <section id="services" class="section section--page" aria-labelledby="services-title">
             <div class="container">
-                <header class="section-head" data-reveal>
+                <header class="section-head">
                     <p class="eyebrow"><span aria-hidden="true">03</span> Services</p>
                     <h1 id="services-title">What I <span>do</span></h1>
                     <p class="section-sub">Four areas where engineering, security, and interface design meet.</p>
                 </header>
 
                 <div class="services">
-                    <article class="card service service--frontend" data-index="01" data-spotlight data-reveal>
+                    <article class="card service" data-index="01">
                         <span class="service__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="8 6 3 12 8 18" />
@@ -91,7 +91,7 @@
                         </ul>
                     </article>
 
-                    <article class="card service service--security" data-index="02" data-spotlight data-reveal>
+                    <article class="card service" data-index="02">
                         <span class="service__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M12 3 20 6v5c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6z" />
@@ -107,7 +107,7 @@
                         </ul>
                     </article>
 
-                    <article class="card service service--automation" data-index="03" data-spotlight data-reveal>
+                    <article class="card service" data-index="03">
                         <span class="service__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M4 12a8 8 0 0 1 13.6-5.7L20 8" />
@@ -125,7 +125,7 @@
                         </ul>
                     </article>
 
-                    <article class="card service service--web3" data-index="04" data-spotlight data-reveal>
+                    <article class="card service" data-index="04">
                         <span class="service__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M10.5 13.5a4 4 0 0 0 5.7 0l2.3-2.3a4 4 0 1 0-5.7-5.7L11.5 7" />
@@ -154,31 +154,6 @@
             <p class="footer__meta">&copy; <span id="year">2026</span> Najimdeen Ajadi</p>
         </div>
     </footer>
-
-    <dialog id="palette" class="sheet palette" aria-label="Command palette">
-        <div class="palette__search">
-            <span aria-hidden="true">&#8250;</span>
-            <input id="paletteInput" type="text" role="combobox" aria-expanded="true" aria-controls="paletteList" aria-autocomplete="list" aria-label="Search commands" placeholder="Jump to a page, copy email, open a project…" autocomplete="off" autocapitalize="off" spellcheck="false">
-            <kbd>esc</kbd>
-        </div>
-        <ul id="paletteList" class="palette__list" role="listbox" aria-label="Commands"></ul>
-        <p class="sr-only" id="paletteStatus" role="status"></p>
-        <footer class="palette__foot">
-            <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> navigate</span>
-            <span><kbd>&crarr;</kbd> select</span>
-            <span><kbd>?</kbd> shortcuts</span>
-        </footer>
-    </dialog>
-
-    <dialog id="panel" class="sheet panel" aria-labelledby="panelTitle">
-        <header class="panel__head">
-            <h2 id="panelTitle"></h2>
-            <button type="button" class="panel__close" id="panelClose" aria-label="Close (esc)">esc</button>
-        </header>
-        <div id="panelBody" class="panel__body"></div>
-    </dialog>
-
-    <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
     <script type="module" src="js/main.js"></script>
 </body>
