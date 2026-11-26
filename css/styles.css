@@ -10,16 +10,16 @@
 
 :root {
     color-scheme: dark;
-    --bg: #090909;
-    --panel: #0f0f0f;
-    --panel-2: #131313;
-    --line: #282828;
-    --line-strong: #3a3a3a;
+    --bg: #111b18;
+    --panel: #182420;
+    --panel-2: #1e2d27;
+    --line: #2e4038;
+    --line-strong: #455c50;
     --text: #f1efe9;
     --muted: #95928b;
-    --accent: #ef463b;
-    --accent-dark: #d53b32;
-    --accent-soft: rgba(239, 70, 59, 0.1);
+    --accent: #9bc6b0;
+    --accent-dark: #81af98;
+    --accent-soft: rgba(155, 198, 176, 0.13);
     --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
     --fs-xs: 0.75rem;
@@ -559,7 +559,7 @@ p {
     overflow: hidden;
     border-bottom: 1px solid var(--line);
     border-radius: var(--radius) var(--radius) 0 0;
-    background: #0b0b0b;
+    background: var(--panel-2);
 }
 
 .project--featured .project__media {
@@ -844,9 +844,9 @@ p {
 .field textarea {
     width: 100%;
     padding: 0.8rem 0.85rem;
-    border: 1px solid #66635e;
+    border: 1px solid #65786d;
     border-radius: var(--radius);
-    background: #0b0b0b;
+    background: var(--bg);
     font-size: 1rem;
     transition: border-color 160ms linear;
 }
