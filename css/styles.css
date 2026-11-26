@@ -652,6 +652,34 @@ p {
     min-height: 15rem;
 }
 
+.roles {
+    display: grid;
+    gap: 1rem;
+}
+
+.roles li {
+    display: grid;
+    gap: 0.15rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.roles li:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.roles strong {
+    font-size: 0.98rem;
+    font-weight: 550;
+    letter-spacing: -0.02em;
+}
+
+.roles span {
+    font-size: 0.78rem;
+    color: var(--muted);
+}
+
 .tools {
     margin-top: 1rem;
 }
@@ -849,79 +877,6 @@ p {
 
 .project:focus-within {
     border-color: var(--accent);
-}
-
-.project__media--cover {
-    background: #0d0d0d;
-}
-
-.perp-cover {
-    position: absolute;
-    inset: 1.65rem 0 0;
-    overflow: hidden;
-}
-
-.perp-cover__brand {
-    position: absolute;
-    top: 13%;
-    left: 7%;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-}
-
-.perp-cover__brand span {
-    display: grid;
-    place-items: center;
-    width: 2.25rem;
-    height: 2.25rem;
-    border: 1px solid var(--accent);
-    font-family: var(--font-mono);
-    font-size: 0.61rem;
-    color: var(--accent);
-}
-
-.perp-cover__brand strong {
-    font-size: clamp(1.05rem, 2vw, 1.5rem);
-    font-weight: 600;
-    letter-spacing: -0.03em;
-}
-
-.perp-cover svg {
-    position: absolute;
-    right: -2%;
-    bottom: 8%;
-    left: -2%;
-    width: 104%;
-    height: 55%;
-}
-
-.perp-cover__gridline {
-    fill: none;
-    stroke: #222;
-    stroke-width: 1;
-}
-
-.perp-cover__line {
-    fill: none;
-    stroke: var(--accent);
-    stroke-width: 2;
-}
-
-.perp-cover__fill {
-    fill: rgba(239, 70, 59, 0.05);
-    stroke: none;
-}
-
-.perp-cover__label {
-    position: absolute;
-    right: 7%;
-    bottom: 8%;
-    font-family: var(--font-mono);
-    font-size: 0.52rem;
-    letter-spacing: 0.12em;
-    color: #67645f;
 }
 
 /* Services */
