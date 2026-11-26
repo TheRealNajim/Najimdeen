@@ -36,6 +36,7 @@ if (menu && toggle) {
 
 /* Track the section at the reading line below the fixed header ----------- */
 const header = document.querySelector('.nav');
+const scrollProgress = header?.querySelector('.nav__progress');
 const sections = [...document.querySelectorAll('.nav__link[href^="#"]')]
     .map((link) => ({ link, target: document.getElementById(link.hash.slice(1)) }))
     .filter(({ target }) => target);
@@ -43,14 +44,16 @@ const sections = [...document.querySelectorAll('.nav__link[href^="#"]')]
 if (header) {
     let frame = 0;
     let activeLink = menu?.querySelector('[aria-current]');
+    if (scrollProgress) scrollProgress.hidden = false;
 
     const syncNavigation = () => {
         frame = 0;
         const y = window.scrollY;
+        const maxScroll = document.documentElement.scrollHeight - innerHeight;
         let current = sections[0];
 
         if (current) {
-            if (y > 0 && y + innerHeight >= document.documentElement.scrollHeight - 2) {
+            if (y > 0 && y >= maxScroll - 2) {
                 current = sections[sections.length - 1];
             } else {
                 const readingLine = Math.max(header.offsetHeight + 16, innerHeight * 0.3);
@@ -62,6 +65,7 @@ if (header) {
         }
 
         header.toggleAttribute('data-scrolled', y > 12);
+        if (scrollProgress) scrollProgress.value = Math.min(1, Math.max(0, y / Math.max(1, maxScroll)));
         if (current && activeLink !== current.link) {
             activeLink?.removeAttribute('aria-current');
             activeLink = current.link;
@@ -76,19 +80,59 @@ if (header) {
     scheduleSync();
 }
 
-/* Reveal section content once, just before it reaches the viewport -------- */
+/* Give each section a small lift the first time it comes into view ------- */
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
-    const revealTargets = document.querySelectorAll('.page-section .section-head, .page-section .card');
+    const revealTargets = document.querySelectorAll('.section :is(.section-head, .card, .about__grid, .services, .contact__panel)');
 
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
+            if (!entry.isIntersecting || entry.intersectionRatio < 0.08) return;
             entry.target.classList.add('is-visible');
             revealObserver.unobserve(entry.target);
         });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -4% 0px', threshold: 0.08 });
 
     revealTargets.forEach((target) => revealObserver.observe(target));
+}
+
+/* Preview a full-size project screenshot without leaving the portfolio -- */
+const preview = document.getElementById('projectPreview');
+
+if (typeof preview?.showModal === 'function') {
+    const title = document.getElementById('projectPreviewTitle');
+    const media = preview.querySelector('.project-preview__media');
+    let trigger;
+
+    document.querySelectorAll('[data-project-preview]').forEach((link) => {
+        link.setAttribute('aria-haspopup', 'dialog');
+        link.addEventListener('click', (event) => {
+            if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+            event.preventDefault();
+            trigger = link;
+            title.textContent = `${link.dataset.projectPreview} screenshot`;
+
+            const image = new Image();
+            image.alt = link.querySelector('img').alt;
+            image.addEventListener('error', () => {
+                if (media.firstChild !== image) return;
+                const fallback = document.createElement('p');
+                const original = document.createElement('a');
+                original.href = link.href;
+                original.textContent = 'Open the original image';
+                fallback.append('The preview couldn’t load. ', original);
+                media.replaceChildren(fallback);
+            }, { once: true });
+            image.src = link.href;
+            media.replaceChildren(image);
+            preview.showModal();
+        });
+    });
+
+    preview.addEventListener('close', () => {
+        // Keep the image in place through the CSS exit transition.
+        trigger?.focus({ preventScroll: true });
+        trigger = null;
+    });
 }
 
 /* Contact --------------------------------------------------------------- */
