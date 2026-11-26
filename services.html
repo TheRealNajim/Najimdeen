@@ -29,7 +29,7 @@
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="preload" href="fonts/PlusJakartaSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=5">
 </head>
 
 <body>
@@ -45,15 +45,15 @@
             <nav class="nav__menu" id="navMenu" aria-label="Primary">
                 <ul>
                     <li><a href="index.html#home" class="nav__link">home</a></li>
-                    <li><a href="index.html#about" class="nav__link">about</a></li>
                     <li><a href="index.html#projects" class="nav__link">projects</a></li>
+                    <li><a href="index.html#about" class="nav__link">about</a></li>
                     <li><a href="index.html#services" class="nav__link" aria-current="page">services</a></li>
                     <li><a href="index.html#contact" class="nav__link">contact</a></li>
                 </ul>
             </nav>
 
             <div class="nav__end">
-                <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation">
+                <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation" hidden>
                     <span></span>
                     <span></span>
                 </button>
@@ -66,81 +66,28 @@
         <section id="services" class="section section--page" aria-labelledby="services-title">
             <div class="container">
                 <header class="section-head">
-                    <p class="eyebrow"><span aria-hidden="true">03</span> Services</p>
-                    <h1 id="services-title">What I <span>do</span></h1>
-                    <p class="section-sub">Four areas where engineering, security, and interface design meet.</p>
+                    <p class="eyebrow" aria-hidden="true"><span>03</span> Services</p>
+                    <h1 id="services-title">How I can help</h1>
                 </header>
 
-                <div class="services">
-                    <article class="card service" data-index="01">
-                        <span class="service__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="8 6 3 12 8 18" />
-                                <polyline points="16 6 21 12 16 18" />
-                                <line x1="13.4" y1="4" x2="10.6" y2="20" />
-                            </svg>
-                        </span>
+                <ul class="services" role="list">
+                    <li class="service">
                         <h2>Frontend Engineering</h2>
-                        <p>Fast, accessible interfaces built with semantic HTML, modern CSS and React — shipped as static sites that load instantly.</p>
-                        <ul class="tags" aria-label="Tools">
-                            <li>HTML5</li>
-                            <li>CSS3</li>
-                            <li>JavaScript</li>
-                            <li>React</li>
-                            <li>Vite</li>
-                        </ul>
-                    </article>
-
-                    <article class="card service" data-index="02">
-                        <span class="service__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 3 20 6v5c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6z" />
-                                <path d="m9 12 2 2 4-4" />
-                            </svg>
-                        </span>
-                        <h2>Cybersecurity &amp; Auditing</h2>
-                        <p>Network threat analysis, traffic inspection and vulnerability assessment, with findings written up so they can be acted on.</p>
-                        <ul class="tags" aria-label="Tools">
-                            <li>Wireshark</li>
-                            <li>Nmap</li>
-                            <li>Kali Linux</li>
-                        </ul>
-                    </article>
-
-                    <article class="card service" data-index="03">
-                        <span class="service__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 12a8 8 0 0 1 13.6-5.7L20 8" />
-                                <path d="M20 4v4h-4" />
-                                <path d="M20 12a8 8 0 0 1-13.6 5.7L4 16" />
-                                <path d="M4 20v-4h4" />
-                            </svg>
-                        </span>
+                        <p>Responsive websites and dashboards with keyboard-friendly navigation and readable layouts.</p>
+                    </li>
+                    <li class="service">
+                        <h2>Security Reviews</h2>
+                        <p>Network traffic and system configuration reviews, with written findings and practical fixes.</p>
+                    </li>
+                    <li class="service">
                         <h2>Web Scraping &amp; Automation</h2>
-                        <p>Python scripts and SQL pipelines that collect, clean and move data, replacing repetitive manual work.</p>
-                        <ul class="tags" aria-label="Tools">
-                            <li>Python</li>
-                            <li>SQL</li>
-                            <li class="is-focus">Focus area</li>
-                        </ul>
-                    </article>
-
-                    <article class="card service" data-index="04">
-                        <span class="service__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M10.5 13.5a4 4 0 0 0 5.7 0l2.3-2.3a4 4 0 1 0-5.7-5.7L11.5 7" />
-                                <path d="M13.5 10.5a4 4 0 0 0-5.7 0l-2.3 2.3a4 4 0 1 0 5.7 5.7l1.3-1.3" />
-                            </svg>
-                        </span>
-                        <h2>Web3 / Smart Contract Interfaces</h2>
-                        <p>Frontends that read and write on-chain state — wallet connection, contract calls and clear transaction feedback.</p>
-                        <ul class="tags" aria-label="Tools">
-                            <li>React</li>
-                            <li>JavaScript</li>
-                            <li class="is-focus">Focus area</li>
-                        </ul>
-                    </article>
-                </div>
+                        <p>Python scripts that collect and clean data so teams can skip repetitive manual work.</p>
+                    </li>
+                    <li class="service">
+                        <h2>Web3 Interfaces</h2>
+                        <p>Wallet connection, smart contract interactions, and clear feedback while transactions are pending.</p>
+                    </li>
+                </ul>
             </div>
         </section>
     </main>
@@ -155,7 +102,7 @@
         </div>
     </footer>
 
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/main.js?v=5"></script>
 </body>
 
 </html>

@@ -5,6 +5,9 @@ const menu = document.getElementById('navMenu');
 const toggle = document.getElementById('navToggle');
 
 if (menu && toggle) {
+    menu.setAttribute('data-collapsible', '');
+    toggle.hidden = false;
+
     const setMenu = (open) => {
         toggle.setAttribute('aria-expanded', String(open));
         menu.toggleAttribute('data-open', open);
@@ -31,46 +34,46 @@ if (menu && toggle) {
     });
 }
 
-/* Solid navigation rule after scrolling -------------------------------- */
+/* Track the section at the reading line below the fixed header ----------- */
 const header = document.querySelector('.nav');
+const sections = [...document.querySelectorAll('.nav__link[href^="#"]')]
+    .map((link) => ({ link, target: document.getElementById(link.hash.slice(1)) }))
+    .filter(({ target }) => target);
 
 if (header) {
     let frame = 0;
-    const syncHeader = () => {
-        header.toggleAttribute('data-scrolled', window.scrollY > 12);
+    let activeLink = menu?.querySelector('[aria-current]');
+
+    const syncNavigation = () => {
         frame = 0;
+        const y = window.scrollY;
+        let current = sections[0];
+
+        if (current) {
+            if (y > 0 && y + innerHeight >= document.documentElement.scrollHeight - 2) {
+                current = sections[sections.length - 1];
+            } else {
+                const readingLine = Math.max(header.offsetHeight + 16, innerHeight * 0.3);
+                for (const section of sections) {
+                    if (section.target.getBoundingClientRect().top > readingLine) break;
+                    current = section;
+                }
+            }
+        }
+
+        header.toggleAttribute('data-scrolled', y > 12);
+        if (current && activeLink !== current.link) {
+            activeLink?.removeAttribute('aria-current');
+            activeLink = current.link;
+            activeLink.setAttribute('aria-current', 'location');
+        }
     };
 
-    addEventListener('scroll', () => {
-        frame ||= requestAnimationFrame(syncHeader);
-    }, { passive: true });
-    syncHeader();
-}
-
-/* Keep the navigation in sync with the section being read ---------------- */
-const sectionLinks = [...document.querySelectorAll('.nav__link[href^="#"]')];
-const sections = sectionLinks
-    .map((link) => document.querySelector(link.getAttribute('href')))
-    .filter(Boolean);
-
-const setCurrent = (id) => {
-    sectionLinks.forEach((link) => {
-        if (link.getAttribute('href') === `#${id}`) link.setAttribute('aria-current', 'location');
-        else link.removeAttribute('aria-current');
-    });
-};
-
-sectionLinks.forEach((link) => {
-    link.addEventListener('click', () => setCurrent(link.hash.slice(1)));
-});
-
-if (sections.length && 'IntersectionObserver' in window) {
-    const sectionObserver = new IntersectionObserver((entries) => {
-        const current = entries.find((entry) => entry.isIntersecting);
-        if (current) setCurrent(current.target.id);
-    }, { rootMargin: '-25% 0px -65% 0px' });
-
-    sections.forEach((section) => sectionObserver.observe(section));
+    const scheduleSync = () => { frame ||= requestAnimationFrame(syncNavigation); };
+    addEventListener('scroll', scheduleSync, { passive: true });
+    addEventListener('resize', scheduleSync, { passive: true });
+    addEventListener('pageshow', scheduleSync);
+    scheduleSync();
 }
 
 /* Reveal section content once, just before it reaches the viewport -------- */
@@ -107,6 +110,7 @@ const copyEmail = async () => {
 };
 
 document.querySelectorAll('[data-copy-email]').forEach((button) => {
+    button.hidden = false;
     button.addEventListener('click', copyEmail);
 });
 
@@ -119,8 +123,8 @@ if (form && formStatus) {
         const data = new FormData(form);
         const subject = `Portfolio message from ${data.get('name')}`;
         const body = `${data.get('message')}\n\n— ${data.get('name')} (${data.get('email')})`;
-        location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         formStatus.textContent = 'Opening your email app…';
+        location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
 }
 

@@ -29,7 +29,7 @@
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="preload" href="fonts/PlusJakartaSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=5">
 </head>
 
 <body>
@@ -45,15 +45,15 @@
             <nav class="nav__menu" id="navMenu" aria-label="Primary">
                 <ul>
                     <li><a href="index.html#home" class="nav__link">home</a></li>
-                    <li><a href="index.html#about" class="nav__link">about</a></li>
                     <li><a href="index.html#projects" class="nav__link" aria-current="page">projects</a></li>
+                    <li><a href="index.html#about" class="nav__link">about</a></li>
                     <li><a href="index.html#services" class="nav__link">services</a></li>
                     <li><a href="index.html#contact" class="nav__link">contact</a></li>
                 </ul>
             </nav>
 
             <div class="nav__end">
-                <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation">
+                <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation" hidden>
                     <span></span>
                     <span></span>
                 </button>
@@ -66,119 +66,78 @@
         <section id="projects" class="section section--page" aria-labelledby="projects-title">
             <div class="container">
                 <header class="section-head">
-                    <p class="eyebrow"><span aria-hidden="true">02</span> Work</p>
-                    <h1 id="projects-title">Selected <span>projects</span></h1>
-                    <p class="section-sub">Live applications, built end to end — from the interface down to the logic behind it.</p>
+                    <p class="eyebrow" aria-hidden="true"><span>01</span> Projects</p>
+                    <h1 id="projects-title">Selected work</h1>
                 </header>
 
                 <div class="projects">
-                    <article class="card project project--haqi">
-                        <figure class="project__media">
-                            <div class="project__chrome" aria-hidden="true"><span></span><span></span><span></span><small>haqi-one.vercel.app</small></div>
-                            <img src="img/work/haqi-800.webp" srcset="img/work/haqi-480.webp 480w, img/work/haqi-800.webp 800w, img/work/haqi-960.webp 960w, img/work/haqi.webp 1280w" sizes="(max-width: 720px) calc(100vw - 2.5rem), (max-width: 1280px) 50vw, 590px" width="1280" height="720" alt="HAQI live air-quality world risk map" decoding="async" fetchpriority="high">
-                        </figure>
+                    <article class="card project project--featured">
+                        <div class="project__media">
+                            <img src="img/work/haqi-800.webp" srcset="img/work/haqi-480.webp 480w, img/work/haqi-800.webp 800w, img/work/haqi-960.webp 960w, img/work/haqi.webp 1280w" sizes="(max-width: 900px) 92vw, (max-width: 1240px) 52vw, 660px" width="1280" height="720" alt="HAQI world map alongside local air-quality readings and their sources" decoding="async">
+                        </div>
                         <div class="project__content">
-                            <div class="project__top">
-                                <span class="project__idx" aria-hidden="true">01</span>
-                                <span class="live"><span class="dot" aria-hidden="true"></span>Live</span>
-                            </div>
+                            <p class="project__label">Featured project · Data visualization</p>
                             <h2>HAQI</h2>
-                            <p class="project__tagline">Live air-quality intelligence</p>
-                            <p class="project__desc">A 3D world risk map combining live AQI, weather and fire data with traceable evidence.</p>
-                            <ul class="tags project__stack" aria-label="Stack and focus">
-                                <li>React</li>
-                                <li>Three.js</li>
-                                <li>Tailwind CSS</li>
-                                <li>Live APIs</li>
-                                <li>Vercel</li>
-                            </ul>
+                            <p class="project__desc">A 3D map for checking local air quality alongside weather and nearby fire reports.</p>
+                            <p class="project__desc">The dashboard names its data sources and gives older readings less weight without hiding them.</p>
+                            <p class="project__stack">React · Three.js · Tailwind CSS</p>
                             <div class="project__actions">
                                 <a class="project__link" href="https://haqi-one.vercel.app/" target="_blank" rel="noopener noreferrer">
-                                    Launch App <span class="arrow" aria-hidden="true">&#8599;</span><span class="sr-only"> — HAQI (opens in a new tab)</span>
+                                    Explore HAQI <span class="arrow" aria-hidden="true">&#8599;</span><span class="sr-only"> (opens in a new tab)</span>
                                 </a>
                             </div>
                         </div>
                     </article>
 
                     <article class="card project project--ccgen">
-                        <figure class="project__media">
-                            <div class="project__chrome" aria-hidden="true"><span></span><span></span><span></span><small>cc-gen-seven.vercel.app</small></div>
-                            <img src="img/work/ccgen-800.webp" srcset="img/work/ccgen-480.webp 480w, img/work/ccgen-800.webp 800w, img/work/ccgen-960.webp 960w, img/work/ccgen.webp 1280w" sizes="(max-width: 720px) calc(100vw - 2.5rem), (max-width: 1280px) 50vw, 590px" width="1280" height="560" alt="CC-GEN dummy card generator interface" loading="lazy" decoding="async">
-                        </figure>
+                        <div class="project__media">
+                            <img src="img/work/ccgen-480.webp" srcset="img/work/ccgen-480.webp 480w, img/work/ccgen-800.webp 800w, img/work/ccgen-960.webp 960w, img/work/ccgen.webp 1280w" sizes="(max-width: 760px) 92vw, (max-width: 1240px) 30vw, 385px" width="1280" height="560" alt="CC-GEN payment-testing sandbox interface" loading="lazy" decoding="async">
+                        </div>
                         <div class="project__content">
-                            <div class="project__top">
-                                <span class="project__idx" aria-hidden="true">02</span>
-                                <span class="live"><span class="dot" aria-hidden="true"></span>Live</span>
-                            </div>
+                            <p class="project__label">Payment testing</p>
                             <h2>CC-GEN</h2>
-                            <p class="project__tagline">Dummy card generator</p>
-                            <p class="project__desc">Luhn-validated card generation, test matrix and bulk exports.</p>
-                            <ul class="tags project__stack" aria-label="Stack">
-                                <li>HTML5</li>
-                                <li>CSS3</li>
-                                <li>JavaScript</li>
-                                <li>Luhn MOD 10</li>
-                                <li>Vercel</li>
-                            </ul>
+                            <p class="project__desc">A checkout sandbox that uses dummy data. I built the test-card matrix and bulk export for repeatable QA.</p>
+                            <p class="project__stack">HTML · CSS · JavaScript</p>
                             <div class="project__actions">
                                 <a class="project__link" href="https://cc-gen-seven.vercel.app/" target="_blank" rel="noopener noreferrer">
-                                    Launch App <span class="arrow" aria-hidden="true">&#8599;</span><span class="sr-only"> — CC-GEN (opens in a new tab)</span>
+                                    Open CC-GEN <span class="arrow" aria-hidden="true">&#8599;</span><span class="sr-only"> (opens in a new tab)</span>
                                 </a>
                             </div>
                         </div>
                     </article>
 
                     <article class="card project project--idealab">
-                        <figure class="project__media">
-                            <div class="project__chrome" aria-hidden="true"><span></span><span></span><span></span><small>makeweirduseful.vercel.app</small></div>
-                            <img src="img/work/idealab-800.webp" srcset="img/work/idealab-480.webp 480w, img/work/idealab-800.webp 800w, img/work/idealab-960.webp 960w, img/work/idealab.webp 1280w" sizes="(max-width: 720px) calc(100vw - 2.5rem), (max-width: 1280px) 50vw, 590px" width="1280" height="800" alt="Idea Lab concept mashup generator interface" loading="lazy" decoding="async">
-                        </figure>
+                        <div class="project__media">
+                            <img src="img/work/idealab-480.webp" srcset="img/work/idealab-480.webp 480w, img/work/idealab-800.webp 800w, img/work/idealab-960.webp 960w, img/work/idealab.webp 1280w" sizes="(max-width: 760px) 92vw, (max-width: 1240px) 30vw, 385px" width="1280" height="800" alt="Idea Lab interface for pairing two topics" loading="lazy" decoding="async">
+                        </div>
                         <div class="project__content">
-                            <div class="project__top">
-                                <span class="project__idx" aria-hidden="true">03</span>
-                                <span class="live"><span class="dot" aria-hidden="true"></span>Live</span>
-                            </div>
+                            <p class="project__label">Idea generator</p>
                             <h2>Idea Lab</h2>
-                            <p class="project__tagline">AI concept mashup generator</p>
-                            <p class="project__desc">A concept engine that fuses unlikely domains into buildable ideas.</p>
-                            <ul class="tags project__stack" aria-label="Stack">
-                                <li>React</li>
-                                <li>Vite</li>
-                                <li>Vercel</li>
-                            </ul>
+                            <p class="project__desc">Pair two unrelated topics to get a product idea. I built the mashup logic and reviewed the generated concepts.</p>
+                            <p class="project__stack">React · Vite</p>
                             <div class="project__actions">
                                 <a class="project__link" href="https://makeweirduseful.vercel.app/" target="_blank" rel="noopener noreferrer">
-                                    Launch App <span class="arrow" aria-hidden="true">&#8599;</span><span class="sr-only"> — Idea Lab (opens in a new tab)</span>
+                                    Try Idea Lab <span class="arrow" aria-hidden="true">&#8599;</span><span class="sr-only"> (opens in a new tab)</span>
                                 </a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="card project project--clock">
-                        <figure class="project__media">
-                            <div class="project__chrome" aria-hidden="true"><span></span><span></span><span></span><small>analog-clock-eta-ashen.vercel.app</small></div>
-                            <img src="img/work/clock-800.webp" srcset="img/work/clock-480.webp 480w, img/work/clock-800.webp 800w, img/work/clock-960.webp 960w, img/work/clock.webp 1280w" sizes="(max-width: 720px) calc(100vw - 2.5rem), (max-width: 1280px) 50vw, 590px" width="1280" height="720" alt="Chronos analog and digital clock interface" loading="lazy" decoding="async">
-                        </figure>
+                    <article class="card project">
+                        <div class="project__media">
+                            <img src="img/work/clock-480.webp" srcset="img/work/clock-480.webp 480w, img/work/clock-800.webp 800w, img/work/clock-960.webp 960w, img/work/clock.webp 1280w" sizes="(max-width: 760px) 92vw, (max-width: 1240px) 30vw, 385px" width="1280" height="720" alt="Chronos analog and digital clock with time-zone controls" loading="lazy" decoding="async">
+                        </div>
                         <div class="project__content">
-                            <div class="project__top">
-                                <span class="project__idx" aria-hidden="true">04</span>
-                                <span class="live"><span class="dot" aria-hidden="true"></span>Live</span>
-                            </div>
+                            <p class="project__label">Web clock</p>
                             <h2>Chronos</h2>
-                            <p class="project__tagline">Analog &amp; digital web clock</p>
-                            <p class="project__desc">A 60fps sweep clock with a Web Audio tick, four themes and world time zones.</p>
-                            <ul class="tags project__stack" aria-label="Stack">
-                                <li>JavaScript</li>
-                                <li>SVG</li>
-                                <li>Web Audio API</li>
-                                <li>Vercel</li>
-                            </ul>
+                            <p class="project__desc">A clock with time-zone switching. I used SVG for the sweeping second hand and Web Audio for the tick.</p>
+                            <p class="project__stack">JavaScript · SVG · Web Audio</p>
                             <div class="project__actions">
                                 <a class="project__link" href="https://analog-clock-eta-ashen.vercel.app/" target="_blank" rel="noopener noreferrer">
-                                    Launch App <span class="arrow" aria-hidden="true">&#8599;</span><span class="sr-only"> — Chronos (opens in a new tab)</span>
+                                    Open Chronos <span class="arrow" aria-hidden="true">&#8599;</span><span class="sr-only"> (opens in a new tab)</span>
                                 </a>
                                 <a class="project__source" href="https://github.com/TheRealNajim/Analog-Clock" target="_blank" rel="noopener noreferrer">
-                                    Source <span aria-hidden="true">&#8599;</span><span class="sr-only"> — Chronos on GitHub (opens in a new tab)</span>
+                                    View source <span class="arrow" aria-hidden="true">&#8599;</span><span class="sr-only"> for Chronos on GitHub (opens in a new tab)</span>
                                 </a>
                             </div>
                         </div>
@@ -198,7 +157,7 @@
         </div>
     </footer>
 
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/main.js?v=5"></script>
 </body>
 
 </html>
