@@ -77,6 +77,7 @@ if (header) {
     addEventListener('scroll', scheduleSync, { passive: true });
     addEventListener('resize', scheduleSync, { passive: true });
     addEventListener('pageshow', scheduleSync);
+    document.querySelectorAll('.project__notes').forEach((note) => note.addEventListener('toggle', scheduleSync));
     scheduleSync();
 }
 

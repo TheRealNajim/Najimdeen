@@ -29,7 +29,7 @@
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=5">
     <link rel="manifest" href="site.webmanifest">
     <link rel="preload" href="fonts/PlusJakartaSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/styles.css?v=7">
+    <link rel="stylesheet" href="css/styles.css?v=8">
 
     <script type="application/ld+json">
     {
@@ -90,7 +90,8 @@
                     <h1 class="hero__title" id="hero-title"><span>Najimdeen</span> <span class="hero__surname">Ajadi</span></h1>
                 </div>
                 <div class="hero__copy">
-                    <p class="hero__lede">I build web apps and automation tools. I&rsquo;m based in Nigeria and study Cyber Security Science at LAUTECH.</p>
+                    <p class="hero__lede">I build web apps and automation tools.</p>
+                    <p class="hero__context">Based in Nigeria, studying Cyber Security Science at LAUTECH.</p>
                     <div class="hero__actions">
                         <a href="#projects" class="btn btn--primary">See my work <span class="arrow" aria-hidden="true">&#8595;</span></a>
                         <a href="Najimdeen_CV.pdf" class="btn btn--ghost">Résumé (PDF)</a>
@@ -108,35 +109,37 @@
                 </header>
 
                 <div class="projects">
-                    <article class="card project project--featured">
+                    <article class="card project project--case project--featured">
                         <a class="project__media" href="img/work/haqi.webp" data-project-preview="HAQI" aria-label="Preview + HAQI screenshot">
-                            <img src="img/work/haqi-800.webp" srcset="img/work/haqi-480.webp 480w, img/work/haqi-800.webp 800w, img/work/haqi-960.webp 960w, img/work/haqi.webp 1280w" sizes="(max-width: 900px) 92vw, (max-width: 1240px) 52vw, 665px" width="1280" height="720" alt="HAQI world map alongside local air-quality readings and their sources" decoding="async">
+                            <img src="img/work/haqi-800.webp" srcset="img/work/haqi-480.webp 480w, img/work/haqi-800.webp 800w, img/work/haqi-960.webp 960w, img/work/haqi.webp 1280w" sizes="(max-width: 900px) calc(100vw - 4rem), (max-width: 1240px) 50vw, 620px" width="1280" height="720" alt="HAQI world map alongside local air-quality readings and their sources" decoding="async">
                             <span class="project__zoom" aria-hidden="true">Preview +</span>
                         </a>
                         <div class="project__content">
                             <p class="project__label">Featured project · Data visualization</p>
                             <h3>HAQI</h3>
                             <p class="project__desc">A 3D map for checking local air quality alongside weather and nearby fire reports.</p>
-                            <p class="project__desc">The dashboard names its data sources and gives older readings less weight without hiding them.</p>
                             <p class="project__stack">React · Three.js · Tailwind CSS</p>
                             <div class="project__actions">
                                 <a class="project__link" href="https://haqi-one.vercel.app/" target="_blank" rel="noopener noreferrer">
                                     Explore HAQI <span class="arrow" aria-hidden="true">&#8599;</span><span class="sr-only"> (opens in a new tab)</span>
                                 </a>
                             </div>
+                            <details class="project__notes">
+                                <summary>Build notes<span class="sr-only"> for HAQI</span></summary>
+                                <p>Older readings stay visible but carry less weight. Pick a location in the demo and check the source and time of the air-quality reading before interpreting it.</p>
+                            </details>
                         </div>
                     </article>
 
-                    <article class="card project">
+                    <article class="card project project--case">
                         <a class="project__media" href="img/work/kobovault.webp" data-project-preview="KoboVault" aria-label="Preview + KoboVault screenshot">
-                            <img src="img/work/kobovault-480.webp" srcset="img/work/kobovault-480.webp 480w, img/work/kobovault-800.webp 800w, img/work/kobovault.webp 1280w" sizes="(max-width: 760px) 92vw, (max-width: 1240px) 46vw, 575px" width="1280" height="720" alt="KoboVault landing page with a sample payroll and a Stellar Testnet notice" loading="lazy" decoding="async">
+                            <img src="img/work/kobovault-480.webp" srcset="img/work/kobovault-480.webp 480w, img/work/kobovault-800.webp 800w, img/work/kobovault.webp 1280w" sizes="(max-width: 900px) calc(100vw - 4rem), (max-width: 1240px) 44vw, 510px" width="1280" height="720" alt="KoboVault landing page with a sample payroll and a Stellar Testnet notice" loading="lazy" decoding="async">
                             <span class="project__zoom" aria-hidden="true">Preview +</span>
                         </a>
                         <div class="project__content">
                             <p class="project__label">Stellar Testnet</p>
                             <h3>KoboVault</h3>
                             <p class="project__desc">Private payroll and treasury management for African small businesses, built for a Stellar hackathon.</p>
-                            <p class="project__desc">Zero-knowledge proofs let payroll run on Stellar without publishing salary amounts. Designated auditors can still review payments.</p>
                             <p class="project__stack">Next.js · Soroban · Noir</p>
                             <div class="project__actions">
                                 <a class="project__link" href="https://kobovault.vercel.app/" target="_blank" rel="noopener noreferrer">
@@ -146,12 +149,16 @@
                                     Source (access required) <span class="arrow" aria-hidden="true">&#8599;</span><span class="sr-only"> for KoboVault on GitHub (opens in a new tab)</span>
                                 </a>
                             </div>
+                            <details class="project__notes">
+                                <summary>Build notes<span class="sr-only"> for KoboVault</span></summary>
+                                <p>Zero-knowledge proofs let payroll run without publishing salary amounts. Designated auditors can still review payments. The demo runs on Stellar Testnet and uses no real funds.</p>
+                            </details>
                         </div>
                     </article>
 
                     <article class="card project project--ccgen">
                         <a class="project__media" href="img/work/ccgen.webp" data-project-preview="CC-GEN" aria-label="Preview + CC-GEN screenshot">
-                            <img src="img/work/ccgen-480.webp" srcset="img/work/ccgen-480.webp 480w, img/work/ccgen-800.webp 800w, img/work/ccgen-960.webp 960w, img/work/ccgen.webp 1280w" sizes="(max-width: 760px) 92vw, (max-width: 1240px) 46vw, 575px" width="1280" height="560" alt="CC-GEN payment-testing sandbox interface" loading="lazy" decoding="async">
+                            <img src="img/work/ccgen-480.webp" srcset="img/work/ccgen-480.webp 480w, img/work/ccgen-800.webp 800w, img/work/ccgen-960.webp 960w, img/work/ccgen.webp 1280w" sizes="(max-width: 760px) 92vw, (max-width: 1240px) 30vw, 380px" width="1280" height="560" alt="CC-GEN payment-testing sandbox interface" loading="lazy" decoding="async">
                             <span class="project__zoom" aria-hidden="true">Preview +</span>
                         </a>
                         <div class="project__content">
@@ -169,7 +176,7 @@
 
                     <article class="card project project--idealab">
                         <a class="project__media" href="img/work/idealab.webp" data-project-preview="Idea Lab" aria-label="Preview + Idea Lab screenshot">
-                            <img src="img/work/idealab-480.webp" srcset="img/work/idealab-480.webp 480w, img/work/idealab-800.webp 800w, img/work/idealab-960.webp 960w, img/work/idealab.webp 1280w" sizes="(max-width: 760px) 92vw, (max-width: 1240px) 46vw, 575px" width="1280" height="800" alt="Idea Lab interface for pairing two topics" loading="lazy" decoding="async">
+                            <img src="img/work/idealab-480.webp" srcset="img/work/idealab-480.webp 480w, img/work/idealab-800.webp 800w, img/work/idealab-960.webp 960w, img/work/idealab.webp 1280w" sizes="(max-width: 760px) 92vw, (max-width: 1240px) 30vw, 380px" width="1280" height="800" alt="Idea Lab interface for pairing two topics" loading="lazy" decoding="async">
                             <span class="project__zoom" aria-hidden="true">Preview +</span>
                         </a>
                         <div class="project__content">
@@ -187,7 +194,7 @@
 
                     <article class="card project">
                         <a class="project__media" href="img/work/clock.webp" data-project-preview="Chronos" aria-label="Preview + Chronos screenshot">
-                            <img src="img/work/clock-480.webp" srcset="img/work/clock-480.webp 480w, img/work/clock-800.webp 800w, img/work/clock-960.webp 960w, img/work/clock.webp 1280w" sizes="(max-width: 760px) 92vw, (max-width: 1240px) 46vw, 575px" width="1280" height="720" alt="Chronos analog and digital clock with time-zone controls" loading="lazy" decoding="async">
+                            <img src="img/work/clock-480.webp" srcset="img/work/clock-480.webp 480w, img/work/clock-800.webp 800w, img/work/clock-960.webp 960w, img/work/clock.webp 1280w" sizes="(max-width: 760px) 92vw, (max-width: 1240px) 30vw, 380px" width="1280" height="720" alt="Chronos analog and digital clock with time-zone controls" loading="lazy" decoding="async">
                             <span class="project__zoom" aria-hidden="true">Preview +</span>
                         </a>
                         <div class="project__content">
@@ -358,7 +365,7 @@
         <div class="project-preview__media"></div>
     </dialog>
 
-    <script type="module" src="js/main.js?v=6"></script>
+    <script type="module" src="js/main.js?v=7"></script>
 </body>
 
 </html>
